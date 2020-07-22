@@ -1,7 +1,7 @@
 class Complex(object):
 	def __init__(self,real,im):
-		self.r=real
-		self.i=im
+		self.r=real #real part
+		self.i=im #imaginary part
 
 	def display(self):
 		if self.i>0:
@@ -28,7 +28,7 @@ class Complex(object):
 		return Complex(diff_r,diff_i)
 
 	def modulus(self):
-		return self.r**2+self.i**2
+		return (self.r**2+self.i**2)**0.5
 
 	def multiply(self,c):
 		m_r=(self.r*c.r)-(self.i*c.i)
@@ -39,19 +39,9 @@ class Complex(object):
 		return Complex(self.r,-self.i)
 
 	def inverse(self):
-		in_r=self.r/float(self.modulus())
-		in_i=-self.i/float(self.modulus())
+		in_r=self.r/float(self.modulus()**2)
+		in_i=-self.i/float(self.modulus()**2)
 		return Complex(in_r,in_i)
 
 	def divide(self,c):
 		return self.multiply(c.inverse())
-
-
-#examples
-a=Complex(2,4)
-a.display()
-a.conjugate().display()
-a.add(a.conjugate()).display()
-a.subtract(a.conjugate()).display()
-print('mod',a.modulus())
-a.multiply(a.conjugate()).display()
