@@ -11,7 +11,7 @@ while cap.isOpened():
 	orb=cv2.ORB()
 	kp1,des1=orb.detectAndCompute(ball,None)
 	kp2,des2=orb.detectAndCompute(frame,None)
-	bf=cv2.BFMatcher(cv2.NORTH_HAMMING,crossCheck=True)
+	bf=cv2.BFMatcher(cv2.NORM_HAMMING,crossCheck=True)
 	matches=bf.match(des1,des2)
 	matches=sorted(matches,key=lambda x:x.distance)
 	img=cv2.drawMatches(ball,kp1,frame,kp2,matches[:10],flags=2)
