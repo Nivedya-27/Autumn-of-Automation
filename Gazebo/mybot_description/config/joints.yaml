@@ -1,5 +1,0 @@
-type: "position_controllers/JointGroupPositionController"
-joints:
- - chassis_gripper_arm
- - arm_to_left_finger
- - arm_to_right_finger
